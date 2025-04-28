@@ -1,5 +1,6 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WPF_Label">
     <!-- 动画标签样式 -->
     <Style x:Key="AnimatedLabel" TargetType="Label">
         <Setter Property="Background" Value="LightYellow" />
@@ -54,5 +55,24 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <!-- 超链接样式Label -->
+    <Style x:Key="HyperlinkLabel" TargetType="Label">
+        <Setter Property="Foreground" Value="Blue"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <!-- TextDecorations不能用于Label，这里注释掉 -->
+        <!-- <Setter Property="TextDecorations" Value="Underline"/> -->
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="DarkBlue"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- 必填项Label样式 -->
+    <Style TargetType="{x:Type local:RequiredFieldLabel}">
+        <Setter Property="Foreground" Value="Navy"/>
+        <Setter Property="FontWeight" Value="Bold"/>
     </Style>
 </ResourceDictionary> 
