@@ -35,11 +35,11 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" Content="_用户名:" Target="{Binding ElementName=txtGridUser}"/>
+                    <Label Grid.Row="0" Grid.Column="0" Content="_U用户名(Alt+U):" Target="{Binding ElementName=txtGridUser}"/>
                     <TextBox x:Name="txtGridUser" Grid.Row="0" Grid.Column="1" Margin="5"/>
-                    <Label Grid.Row="1" Grid.Column="0" Content="_密码:" Target="{Binding ElementName=txtGridPwd}"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="_P密码(Alt+P):" Target="{Binding ElementName=txtGridPwd}"/>
                     <PasswordBox x:Name="txtGridPwd" Grid.Row="1" Grid.Column="1" Margin="5"/>
-                    <Label Grid.Row="2" Grid.Column="0" Content="_部门:" Target="{Binding ElementName=cboGridDept}"/>
+                    <Label Grid.Row="2" Grid.Column="0" Content="_D部门(Alt+D):" Target="{Binding ElementName=cboGridDept}"/>
                     <ComboBox x:Name="cboGridDept" Grid.Row="2" Grid.Column="1" Margin="5">
                         <ComboBoxItem Content="技术部"/>
                         <ComboBoxItem Content="市场部"/>
@@ -51,9 +51,9 @@
             <!-- 3. Target属性与访问键（StackPanel布局） -->
             <GroupBox Header="Target属性与访问键（StackPanel布局）" Margin="0,0,0,15">
                 <StackPanel Margin="10">
-                    <Label Content="_用户名(Alt+U)：" Target="{Binding ElementName=txtUsername}"/>
+                    <Label Content="_I用户名(Alt+I)：" Target="{Binding ElementName=txtUsername}"/>
                     <TextBox x:Name="txtUsername" Width="200" Margin="0,0,0,10"/>
-                    <Label Content="_密码(Alt+P)：" Target="{Binding ElementName=txtPassword}"/>
+                    <Label Content="_M密码(Alt+M)：" Target="{Binding ElementName=txtPassword}"/>
                     <PasswordBox x:Name="txtPassword" Width="200"/>
                 </StackPanel>
             </GroupBox>
