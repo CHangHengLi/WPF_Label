@@ -1,7 +1,7 @@
 # WPF_Label (.NET 8.0)
 
 本项目为WPF Label控件的演示程序，涵盖Label的基础用法、Target属性、样式与模板、数据绑定、可访问性等典型场景。
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/6d0bff1b-f22a-46ee-9c32-9644054cf1d0)
 
 ## 主要演示内容
 - Label基础用法
