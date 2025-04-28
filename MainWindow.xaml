@@ -1,138 +1,196 @@
-<Window x:Class="WPF_Label.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPF_Label"
-        mc:Ignorable="d"
-        Title="WPF Label控件演示" Height="900" Width="900">
+<Window
+    x:Class="WPF_Label.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF_Label"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="WPF Label控件演示"
+    Width="900"
+    Height="900"
+    mc:Ignorable="d">
     <ScrollViewer>
-        <StackPanel Margin="20" >
-            <TextBlock Text="WPF Label控件演示（涵盖基础与高级用法）" FontSize="24" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+        <StackPanel Margin="20">
+            <TextBlock
+                Margin="0,0,0,20"
+                HorizontalAlignment="Center"
+                FontSize="24"
+                FontWeight="Bold"
+                Text="WPF Label控件演示（涵盖基础与高级用法）" />
 
-            <!-- 1. 基础Label用法 -->
-            <GroupBox Header="基础Label用法" Margin="0,0,0,15">
+            <!--  1. 基础Label用法  -->
+            <GroupBox Margin="0,0,0,15" Header="基础Label用法">
                 <StackPanel Margin="10">
-                    <Label Content="普通文本标签"/>
+                    <Label Content="普通文本标签" />
                     <Label>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="https://img.icons8.com/ios-filled/50/000000/user.png" Width="16" Height="16" Margin="0,0,5,0"/>
-                            <TextBlock Text="带图标的标签"/>
+                            <Image
+                                Width="16"
+                                Height="16"
+                                Margin="0,0,5,0"
+                                Source="https://img.icons8.com/ios-filled/50/000000/user.png" />
+                            <TextBlock Text="带图标的标签" />
                         </StackPanel>
                     </Label>
                 </StackPanel>
             </GroupBox>
 
-            <!-- 2. Label与表单控件配合(Grid布局) -->
-            <GroupBox Header="Label与表单控件配合（Grid布局）" Margin="0,0,0,15">
+            <!--  2. Label与表单控件配合(Grid布局)  -->
+            <GroupBox Margin="0,0,0,15" Header="Label与表单控件配合（Grid布局）">
                 <Grid Margin="10">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" Content="_U用户名(Alt+U):" Target="{Binding ElementName=txtGridUser}"/>
-                    <TextBox x:Name="txtGridUser" Grid.Row="0" Grid.Column="1" Margin="5"/>
-                    <Label Grid.Row="1" Grid.Column="0" Content="_P密码(Alt+P):" Target="{Binding ElementName=txtGridPwd}"/>
-                    <PasswordBox x:Name="txtGridPwd" Grid.Row="1" Grid.Column="1" Margin="5"/>
-                    <Label Grid.Row="2" Grid.Column="0" Content="_D部门(Alt+D):" Target="{Binding ElementName=cboGridDept}"/>
-                    <ComboBox x:Name="cboGridDept" Grid.Row="2" Grid.Column="1" Margin="5">
-                        <ComboBoxItem Content="技术部"/>
-                        <ComboBoxItem Content="市场部"/>
-                        <ComboBoxItem Content="人事部"/>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Content="_U用户名(Alt+U):"
+                        Target="{Binding ElementName=txtGridUser}" />
+                    <TextBox
+                        x:Name="txtGridUser"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="5" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Content="_P密码(Alt+P):"
+                        Target="{Binding ElementName=txtGridPwd}" />
+                    <PasswordBox
+                        x:Name="txtGridPwd"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="5" />
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Content="_D部门(Alt+D):"
+                        Target="{Binding ElementName=cboGridDept}" />
+                    <ComboBox
+                        x:Name="cboGridDept"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="5">
+                        <ComboBoxItem Content="技术部" />
+                        <ComboBoxItem Content="市场部" />
+                        <ComboBoxItem Content="人事部" />
                     </ComboBox>
                 </Grid>
             </GroupBox>
 
-            <!-- 3. Target属性与访问键（StackPanel布局） -->
-            <GroupBox Header="Target属性与访问键（StackPanel布局）" Margin="0,0,0,15">
+            <!--  3. Target属性与访问键（StackPanel布局）  -->
+            <GroupBox Margin="0,0,0,15" Header="Target属性与访问键（StackPanel布局）">
                 <StackPanel Margin="10">
-                    <Label Content="_I用户名(Alt+I)：" Target="{Binding ElementName=txtUsername}"/>
-                    <TextBox x:Name="txtUsername" Width="200" Margin="0,0,0,10"/>
-                    <Label Content="_M密码(Alt+M)：" Target="{Binding ElementName=txtPassword}"/>
-                    <PasswordBox x:Name="txtPassword" Width="200"/>
+                    <Label Content="_I用户名(Alt+I)：" Target="{Binding ElementName=txtUsername}" />
+                    <TextBox
+                        x:Name="txtUsername"
+                        Width="200"
+                        Margin="0,0,0,10" />
+                    <Label Content="_M密码(Alt+M)：" Target="{Binding ElementName=txtPassword}" />
+                    <PasswordBox x:Name="txtPassword" Width="200" />
                 </StackPanel>
             </GroupBox>
 
-            <!-- 4. 样式与模板 -->
-            <GroupBox Header="样式与模板" Margin="0,0,0,15">
+            <!--  4. 样式与模板  -->
+            <GroupBox Margin="0,0,0,15" Header="样式与模板">
                 <StackPanel Margin="10">
-                    <Label Content="样式化标签" Background="LightYellow" Foreground="DarkGreen" FontWeight="Bold" FontStyle="Italic" Padding="10,5" BorderBrush="DarkGreen" BorderThickness="1"/>
-                    <Label Content="动画标签" Style="{StaticResource AnimatedLabel}"/>
-                    <Label Content="花式模板标签" Tag="信息" Style="{StaticResource FancyLabel}" Background="White" Padding="10,5"/>
+                    <Label
+                        Padding="10,5"
+                        Background="LightYellow"
+                        BorderBrush="DarkGreen"
+                        BorderThickness="1"
+                        Content="样式化标签"
+                        FontStyle="Italic"
+                        FontWeight="Bold"
+                        Foreground="DarkGreen" />
+                    <Label Content="动画标签" Style="{StaticResource AnimatedLabel}" />
+                    <Label
+                        Padding="10,5"
+                        Background="White"
+                        Content="花式模板标签"
+                        Style="{StaticResource FancyLabel}"
+                        Tag="信息" />
                 </StackPanel>
             </GroupBox>
 
-            <!-- 5. 数据绑定与格式化 -->
-            <GroupBox Header="数据绑定与格式化" Margin="0,0,0,15">
+            <!--  5. 数据绑定与格式化  -->
+            <GroupBox Margin="0,0,0,15" Header="数据绑定与格式化">
                 <StackPanel Margin="10">
-                    <Label Content="{Binding UserName}" ContentStringFormat="用户名: {0}"/>
-                    <Label Content="{Binding Price}" ContentStringFormat="价格: {0:C}"/>
+                    <Label Content="{Binding UserName}" ContentStringFormat="用户名: {0}" />
+                    <Label Content="{Binding Price}" ContentStringFormat="价格: {0:C}" />
                 </StackPanel>
             </GroupBox>
 
-            <!-- 6. 多语言支持（资源绑定） -->
-            <GroupBox Header="多语言支持（资源绑定）" Margin="0,0,0,15">
+            <!--  6. 多语言支持（资源绑定）  -->
+            <GroupBox Margin="0,0,0,15" Header="多语言支持（资源绑定）">
                 <StackPanel Margin="10">
-                    <Label x:Name="lblUsername" Content="{Binding Source={x:Static local:LangRes.UsernameLabel}}"/>
-                    <Label x:Name="lblPassword" Content="{Binding Source={x:Static local:LangRes.PasswordLabel}}"/>
-                    <Button Content="切换语言/Switch Language" Click="SwitchLanguage_Click" 
-                            Margin="0,10,0,0" Padding="10,5" 
-                            HorizontalAlignment="Left"/>
+                    <Label x:Name="lblUsername" Content="{Binding Source={x:Static local:LangRes.UsernameLabel}}" />
+                    <Label x:Name="lblPassword" Content="{Binding Source={x:Static local:LangRes.PasswordLabel}}" />
+                    <Button
+                        Margin="0,10,0,0"
+                        Padding="10,5"
+                        HorizontalAlignment="Left"
+                        Click="SwitchLanguage_Click"
+                        Content="切换语言/Switch Language" />
                 </StackPanel>
             </GroupBox>
 
-            <!-- 7. 自定义Label控件（带红色星号） -->
-            <GroupBox Header="自定义Label控件（必填项星号）" Margin="0,0,0,15">
+            <!--  7. 自定义Label控件（带红色星号）  -->
+            <GroupBox Margin="0,0,0,15" Header="自定义Label控件（必填项星号）">
                 <StackPanel Margin="10">
-                    <local:RequiredFieldLabel Content="用户名"/>
-                    <local:RequiredFieldLabel Content="密码"/>
+                    <local:RequiredFieldLabel Content="用户名" />
+                    <local:RequiredFieldLabel Content="密码" />
                 </StackPanel>
             </GroupBox>
 
-            <!-- 8. 富文本Label（TextBlock+Run+Hyperlink） -->
-            <GroupBox Header="富文本Label（TextBlock+Run+Hyperlink）" Margin="0,0,0,15">
+            <!--  8. 富文本Label（TextBlock+Run+Hyperlink）  -->
+            <GroupBox Margin="0,0,0,15" Header="富文本Label（TextBlock+Run+Hyperlink）">
                 <Label>
                     <TextBlock>
                         <Run Text="普通文本" />
-                        <Run Text=" 粗体文本" FontWeight="Bold" />
-                        <Run Text=" 颜色文本" Foreground="Red" />
+                        <Run FontWeight="Bold" Text=" 粗体文本" />
+                        <Run Foreground="Red" Text=" 颜色文本" />
                         <Hyperlink NavigateUri="https://www.example.com" RequestNavigate="Hyperlink_RequestNavigate">点击链接</Hyperlink>
                     </TextBlock>
                 </Label>
             </GroupBox>
 
-            <!-- 9. 可点击Label（超链接样式、事件处理、命令绑定） -->
-            <GroupBox Header="可点击Label（超链接样式/命令）" Margin="0,0,0,15">
+            <!--  9. 可点击Label（超链接样式、事件处理、命令绑定）  -->
+            <GroupBox Margin="0,0,0,15" Header="可点击Label（超链接样式/命令）">
                 <StackPanel Margin="10">
-                    <Label Style="{StaticResource HyperlinkLabel}" MouseLeftButtonDown="ViewMoreLabel_Click">
-                        <TextBlock Text="查看更多..." TextDecorations="Underline"/>
+                    <Label MouseLeftButtonDown="ViewMoreLabel_Click" Style="{StaticResource HyperlinkLabel}">
+                        <TextBlock Text="查看更多..." TextDecorations="Underline" />
                     </Label>
                     <Label Content="执行操作" Cursor="Hand">
                         <Label.InputBindings>
-                            <MouseBinding MouseAction="LeftClick" Command="{Binding ExecuteCommand}"/>
+                            <MouseBinding Command="{Binding ExecuteCommand}" MouseAction="LeftClick" />
                         </Label.InputBindings>
                     </Label>
                 </StackPanel>
             </GroupBox>
 
-            <!-- 10. 可访问性与屏幕阅读器优化 -->
-            <GroupBox Header="可访问性与屏幕阅读器优化" Margin="0,0,0,15">
+            <!--  10. 可访问性与屏幕阅读器优化  -->
+            <GroupBox Margin="0,0,0,15" Header="可访问性与屏幕阅读器优化(使用WIn+Ctrl+Enter进入讲述人模式)">
                 <StackPanel Margin="10">
-                    <Label x:Name="lblPhone" Content="电话号码:"/>
-                    <TextBox x:Name="txtPhone" AutomationProperties.LabeledBy="{Binding ElementName=lblPhone}" AutomationProperties.HelpText="请输入您的联系电话，格式为：XXX-XXXX-XXXX"/>
+                    <Label x:Name="lblPhone" Content="电话号码:" />
+                    <TextBox
+                        x:Name="txtPhone"
+                        AutomationProperties.HelpText="请输入您的联系电话，格式为：XXX-XXXX-XXXX"
+                        AutomationProperties.LabeledBy="{Binding ElementName=lblPhone}" />
                 </StackPanel>
             </GroupBox>
 
-            <!-- 11. Label与TextBlock对比演示 -->
-            <GroupBox Header="Label与TextBlock对比" Margin="0,0,0,15">
+            <!--  11. Label与TextBlock对比演示  -->
+            <GroupBox Margin="0,0,0,15" Header="Label与TextBlock对比">
                 <StackPanel Margin="10">
-                    <Label Content="我是Label，支持Target、访问键、模板等"/>
-                    <TextBlock Text="我是TextBlock，轻量、富文本、性能高"/>
+                    <Label Content="我是Label，支持Target、访问键、模板等" />
+                    <TextBlock Text="我是TextBlock，轻量、富文本、性能高" />
                 </StackPanel>
             </GroupBox>
         </StackPanel>
