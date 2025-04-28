@@ -1,0 +1,61 @@
+<Window x:Class="WPF_Label.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="WPF Label控件演示" Height="600" Width="800">
+    <ScrollViewer>
+        <StackPanel Margin="20" >
+            <TextBlock Text="WPF Label控件演示" FontSize="24" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+            <!-- 基础Label用法 -->
+            <GroupBox Header="基础Label用法" Margin="0,0,0,15">
+                <StackPanel Margin="10">
+                    <Label Content="普通文本标签"/>
+                    <Label>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="https://img.icons8.com/ios-filled/50/000000/user.png" Width="16" Height="16" Margin="0,0,5,0"/>
+                            <TextBlock Text="带图标的标签"/>
+                        </StackPanel>
+                    </Label>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- Target属性与访问键 -->
+            <GroupBox Header="Target属性与访问键" Margin="0,0,0,15">
+                <StackPanel Margin="10">
+                    <Label Content="_u用户名(快捷键Alt+U)：" Target="{Binding ElementName=txtUsername}"/>
+                    <TextBox x:Name="txtUsername" Width="200" Margin="0,0,0,10"/>
+                    <Label Content="_p密码(快捷键Alt+P)：" Target="{Binding ElementName=txtPassword}"/>
+                    <PasswordBox x:Name="txtPassword" Width="200"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- 样式与模板 -->
+            <GroupBox Header="样式与模板" Margin="0,0,0,15">
+                <StackPanel Margin="10">
+                    <Label Content="样式化标签" Background="LightYellow" Foreground="DarkGreen" FontWeight="Bold" FontStyle="Italic" Padding="10,5" BorderBrush="DarkGreen" BorderThickness="1"/>
+                    <Label Content="动画标签" Style="{StaticResource AnimatedLabel}"/>
+                    <Label Content="花式模板标签" Tag="信息" Style="{StaticResource FancyLabel}" Background="White" Padding="10,5"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- 数据绑定与格式化 -->
+            <GroupBox Header="数据绑定与格式化" Margin="0,0,0,15">
+                <StackPanel Margin="10">
+                    <Label Content="{Binding UserName}" ContentStringFormat="用户名: {0}"/>
+                    <Label Content="{Binding Price}" ContentStringFormat="价格: {0:C}"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- 可访问性与表单最佳实践 -->
+            <GroupBox Header="可访问性与表单最佳实践" Margin="0,0,0,15">
+                <StackPanel Margin="10">
+                    <Label Content="_d电子邮件(快捷键Alt+D)：" Target="{Binding ElementName=txtEmail}" AutomationProperties.HelpText="请输入您的电子邮件" AutomationProperties.Name="电子邮件标签"/>
+                    <TextBox x:Name="txtEmail" Width="200"/>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+    </ScrollViewer>
+</Window> 
